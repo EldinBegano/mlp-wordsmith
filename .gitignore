@@ -1,0 +1,23 @@
+# Betriebssystem-spezifische Dateien
+.DS_Store        
+Thumbs.db       
+
+# Node.js / npm / Yarn
+node_modules/   
+
+# IDEs und Editoren
+.vscode/           
+
+# Log-Dateien
+*.log            
+
+# Temporäre Dateien
+*.bak           
+*.swp            
+*.tmp            
+
+# PHP Storm- und andere IDEs spezifische Konfigurationsdateien
+.idea/
+
+# Einstellungen von Mac OS X
+.DS_Store
