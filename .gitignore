@@ -18,6 +18,8 @@ node_modules/
 
 # PHP Storm- und andere IDEs spezifische Konfigurationsdateien
 .idea/
+target/
+out/
 
 # Einstellungen von Mac OS X
 .DS_Store
