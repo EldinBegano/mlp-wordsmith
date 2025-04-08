@@ -1,28 +1,38 @@
+package mlp;
+
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.util.*;
 
-public class MLPTranslation {
-    private static MLPTranslation instance;
+public class MLPWordSmith {
+    private static MLPWordSmith instance;
     private final Map<String, Map<String, String>> translations = new HashMap<>();
     private final List<String> availableLanguages = new ArrayList<>();
     private String currentLanguage = "English";
+    private String path = "Example/src/main/resources/translation.csv"; // Default path
 
-    private MLPTranslation() {
+    private MLPWordSmith() {
         loadTranslations();
     }
 
-    public static MLPTranslation getInstance() {
+    public static MLPWordSmith getInstance() {
         if (instance == null) {
-            instance = new MLPTranslation();
+            instance = new MLPWordSmith();
         }
         return instance;
     }
 
+    public void setFilePath(String filePath) {
+        this.path = filePath;
+        translations.clear();
+        availableLanguages.clear();
+        loadTranslations();
+    }
+
     private void loadTranslations() {
-        try (BufferedReader reader = new BufferedReader(new FileReader("java-fx/src/main/resources/translation.csv", StandardCharsets.UTF_8))) {
+        try (BufferedReader reader = new BufferedReader(new FileReader(path, StandardCharsets.UTF_8))) {
             String line = reader.readLine();
             if (line != null) {
                 String[] languages = line.split(",");
@@ -45,6 +55,7 @@ public class MLPTranslation {
                 }
             }
         } catch (IOException e) {
+            System.err.println("Failed to load translations from: " + path);
             e.printStackTrace();
         }
     }
@@ -70,6 +81,7 @@ public class MLPTranslation {
             this.currentLanguage = language;
         }
     }
+
     public String getCurrentLanguage() {
         return currentLanguage;
     }

@@ -1,4 +1,4 @@
-= MLPTranslation
+= MLPWordSmith
 :toc: left
 :icons: font
 
@@ -30,9 +30,9 @@ Strawberry, Erdbeere, Fragola
 
 === Get Singleton Instance
 
-[source, java]
+[source,java]
 ----
-MLPTranslation translator = MLPTranslation.getInstance();
+MLPWordSmith translator = MLPWordSmith.getInstance();
 ----
 
 === Set Current Language
@@ -65,4 +65,12 @@ languages.forEach(System.out::println);
 String lang = translator.getCurrentLanguage();
 System.out.println("Current language: " + lang);
 ----
+
+== Tester
+
+* Load the pom.xml as a Maven Project
+
+* Run the AppLauncher and write Hello
+
+* Press translate and see the result
 
